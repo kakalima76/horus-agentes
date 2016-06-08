@@ -1,10 +1,19 @@
 angular.module('app', ['ngRoute'])
 
-.config(['$routeProvider',function($routeProvider) {
+.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	$routeProvider
 	.when('/', {
+		templateUrl: 'templates/login.html'
+	})
 
+	.when('/anexos', {
+		templateUrl: 'templates/anexos.html'
 	})
 
 	.otherwise({redirectTo: '/'});
+
+	$locationProvider.html5Mode({
+  		enabled: true,
+  		requireBase: false
+	});
 }])
