@@ -13,7 +13,7 @@ angular.module('app', ['ngRoute'])
 	.otherwise({redirectTo: '/'});
 
 	$locationProvider.html5Mode({
-  		enabled: true,
+  		enabled: false,
   		requireBase: false
 	});
 }])
