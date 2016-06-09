@@ -12,11 +12,15 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "public/components"
   ],
   "dependencies": {
     "angular": "*",
     "angular-route": "^1.5.6",
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "jquery-ui-datepicker-languages": "bower-jquery-ui-datepickers#^0.0.2",
+    "bower": "*",
+    "jquery-ui": "^1.11.4"
   }
 }

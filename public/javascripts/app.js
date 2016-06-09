@@ -1,13 +1,15 @@
-angular.module('app', ['ngRoute'])
+angular.module('app', ['ngRoute', 'ui.bootstrap'])
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	$routeProvider
 	.when('/', {
-		templateUrl: 'templates/login.html'
+		templateUrl: 'template_login/login.html'
 	})
 
 	.when('/anexos', {
-		templateUrl: 'templates/anexos.html'
+		templateUrl: 'template_anexos/anexos.html',
+		controller: 'anexosController',
+		controllerAs: 'vm'
 	})
 
 	.otherwise({redirectTo: '/'});

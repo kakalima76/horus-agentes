@@ -36,13 +36,13 @@ gulp.task("watch:html", function () {
 });
 
 gulp.task("watch:templatehtml", function () {
-    browserSync.watch("./public/templates/*.html").on("change", function () {
+    browserSync.watch("./public/**/*.html").on("change", function () {
         browserSync.reload();
     });
 });
  
 gulp.task("watch:js", function () {
-    browserSync.watch("./public/javascripts/**/*.js").on("change", function () {
+    browserSync.watch("./public/**/*.js").on("change", function () {
         browserSync.reload("*.js");
     });
 });
