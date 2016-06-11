@@ -47,9 +47,215 @@ table {
   border-spacing: 0;
 }
 
- /*CSS para impressão*/
+header{
+  position: absolute;
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 25%;
+  border-bottom-left-radius: 8em;
+  border-bottom-right-radius: 8em;
+  background-color: #00008B;
+  box-shadow: #1874CD 0.5em 0.5em 0.3em
+}
+
+.logo{
+  position: relative;
+  float: left;
+  margin-left: 10%;
+  top: 10%;
+  width: 10%;
+  height: 80%;
+}
+
+.gop{
+  position: relative;
+  top:40%;
+  float: left;
+  margin-left: 5%;
+  width: 50%;
+  height: 20%;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: white;
+}
+
+.home{
+  position: absolute;
+  top: 45%;
+  left: 30%;
+  width: 35%;
+  height: 40%;
+  padding: 2% 5% 5% 5%;
+  background-color:#1874CD;
+  border-radius: 2.5em;
+  -webkit-print-color-adjust: exact;
+}
+
+.corpo{
+	position: absolute;
+	top: 25%;
+	width: 96%;
+	left: 2%;
+	height: 74%;
+	margin-top: 1%;
+}
+
+.selecionados{
+  padding-left: 3px;
+}
+
+.inputBox{
+  padding-top: 6px;
+}
+
+
+
+
+.tabela{
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+  height: 150px;
+}
+
+td{
+  border-style: solid;
+  border-width: 1px;
+  vertical-align: middle;
+
+}
+
+tr{
+  border-style: solid;
+  border-width: 1px;
+}
+
+.col1{
+  width: 4%;
+  text-align: center
+}
+
+.col2{
+  width: 57%;
+  padding-left: 8px;
+}
+
+.col3{
+  width: 13%;
+  text-align: center;
+}
+
+.col4{
+  width: 61%;
+  text-align: center;
+  color: white;
+  background-color: black;
+  text-decoration-line: underline;
+  -webkit-print-color-adjust: exact;
+}
+
+.justificado{
+  text-align: justify;
+}
+
+.centralizado{
+  text-align: center;
+}
+
+.negrito{
+  font-weight: bold;
+  -webkit-print-color-adjust: exact;
+}
+
+.amarelo{
+  background-color: yellow;
+  -webkit-print-color-adjust: exact;
+}
+
+.tituloTabela{
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+  height: 30px;
+}
+
+.brasao{
+  float: left;
+  width: 65px;
+  height: 65px;
+  margin-left: 40px;
+
+}
+
+.headerTabela{
+  width: 100%;
+  height: 100px;
+
+}
+
+.headerTabelaTexto{
+  float: left;
+  width: 500px;
+  height: 100px;
+  margin-left: 50px;
+}
+
+.jogos{
+  float: right;
+  width: 65px;
+  height: 65px;
+  margin-right: 85px;
+
+}
+
+
+.dataHeader{
+  float: right;
+}
+
+.odd{
+  background-color: #FFCC99;
+  -webkit-print-color-adjust: exact;
+}
+.even{
+  background-color: #C1CDC1;
+  -webkit-print-color-adjust: exact;
+}
+
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -ms-animation: spin .7s infinite linear;
+    -webkit-animation: spinw .7s infinite linear;
+    -moz-animation: spinm .7s infinite linear;
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+  
+@-webkit-keyframes spinw {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes spinm {
+    from { -moz-transform: rotate(0deg);}
+    to { -moz-transform: rotate(360deg);}
+}
+
+    /*CSS para impressão*/
     @media print {
           @page {
           margin: 0.5cm;
           }
     }
+
+#body-m{
+    background-color: #363636;
+}
+
+.fonteBranca{
+  color: white;
+}

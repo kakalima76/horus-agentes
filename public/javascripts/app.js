@@ -3,7 +3,9 @@ angular.module('app', ['ngRoute', 'ui.bootstrap'])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	$routeProvider
 	.when('/', {
-		templateUrl: 'template_login/login.html'
+		templateUrl: 'template_login/login.html',
+		controller: 'loginController',
+		controllerAs: 'vm'
 	})
 
 	.when('/anexos', {

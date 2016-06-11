@@ -1,2 +1,70 @@
-<button class="btn btn-info" type="submit" ng-click='vm.popup()'>Button</button>
-<input class="data"></imput>
+<widget-header titulo = 'CADASTRO DE ANEXOS'></widget-header>
+<div class="corpo">
+		<nav class="navbar navbar-inverse">
+  			<div class="container">
+		   		<ul class="nav nav-pills">
+		  			<li role="presentation" class="active"><a href="#anexos">Home</a></li>
+		  			<li role="presentation"><a href="#anexos">Profile</a></li>
+		  		</ul>
+  			</div>
+		</nav>
+
+	<form>
+		<div class="form-group">
+    		<label class="fonteBranca">AUTO Nº</label>
+    		<input type="number" class="form-control" placeholder="número do auto de apreensão">
+
+    		<label class="fonteBranca">Data</label>
+    		<input class="form-control" ng-model='date' placeholder="data" datepicker>
+  		
+    		<label class="fonteBranca">BAIRRO</label>
+		  		<select class="form-control">
+		  			<option>1</option>
+		  			<option>2</option>
+		  			<option>3</option>
+		  			<option>4</option>
+		  			<option>5</option>
+				</select>
+			<label class="fonteBranca">LOGRADOURO</label>
+				<select class="form-control">
+		  			<option>1</option>
+		  			<option>2</option>
+		  			<option>3</option>
+		  			<option>4</option>
+		  			<option>5</option>
+				</select>
+		</div>
+	</form>	
+
+	<form class="form-inline">
+		
+		
+  		
+  		<div class="form-group">
+	    	<label class="fonteBranca">LACRE CCU</label>
+	    	<input type="email" class="form-control" placeholder="jane.doe@example.com">
+  		</div>
+
+  		<div class="form-group">
+	    	<label class="fonteBranca">Nº TRM</label>
+	    	<input type="email" class="form-control"  placeholder="jane.doe@example.com">
+  		</div>
+
+  		<div class="form-group">
+	    	<label class="fonteBranca">LACRE TRM</label>
+	    	<input type="email" class="form-control" placeholder="jane.doe@example.com">
+  		</div>
+
+
+  		<button type="submit" class="btn btn-default">Send invitation</button>
+  		<button type="submit" class="btn btn-default">Send invitation</button>
+	</form>
+
+
+
+
+
+
+
+
+</div>
