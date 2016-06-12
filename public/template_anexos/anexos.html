@@ -78,21 +78,21 @@
 
 	<button type="button" class="btn btn-primary btn-lg btn-block" ng-show="!vm.showLacre" ng-click="vm.salvarLacre()">Salvar lacre</button>
 
-	<div class="corpoProdutos fonteBranca">
+	<div class="corpoProdutos">
 		<table class="tabela">
 				<tr>
-					<td class="fonteBranca centralizado">NÚERO DO LACRE</td>
-					<td class="fonteBranca centralizado" >NÚMERO DO TRM</td>
-					<td class="fonteBranca centralizado">TIPO DE PRODUTO</td>
-					<td class="fonteBranca centralizado">PRODUTO</td>
-					<td class="fonteBranca centralizado">QUANTIDADE</td>
+					<td class="centralizado headerTabela">NÚERO DO LACRE</td>
+					<td class="centralizado headerTabela" >NÚMERO DO TRM</td>
+					<td class="centralizado headerTabela" >TIPO</td>
+					<td class="centralizado headerTabela">PRODUTO</td>
+					<td class="centralizado headerTabela">QUANTIDADE</td>
 				</tr>
-				<tr ng-repeat="campo in vm.arrayExibe">
-					<td class="fonteBranca">{{campo.lacre}}</td>
-					<td class="fonteBranca">{{campo.trm}}</td>
-					<td class="fonteBranca">{{campo.tipo}}</td>
-					<td class="fonteBranca">{{campo.produto}}</td>
-					<td class="fonteBranca centralizado">{{campo.quantidade}}</td>
+				<tr ng-repeat="campo in vm.arrayExibe" ng-class-odd="'odd'" ng-class-even="'even'">
+					<td class="centralizado">{{campo.lacre}}</td>
+					<td class="centralizado">{{campo.trm}}</td>
+					<td>{{campo.tipo}}</td>
+					<td>{{campo.produto}}</td>
+					<td class="centralizado">{{campo.quantidade}}</td>
 				</tr>
 		</table>
 	</div>

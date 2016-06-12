@@ -4,7 +4,7 @@ angular.module('app')
 	vm.showLacre = true;
 	vm.arrayEscolha = [];
 	vm.arrayExibe = [];
-	vm.arrayEstatísticas = [];
+	
 	vm.produtos = produtosService.get().sort(compareProduto);
 	vm.filtros = produtosService.getFiltro().sort(compareFiltro);
 	vm.agentes = [];
@@ -118,7 +118,7 @@ angular.module('app')
 								value.total = tipo.quantidade;
 							}
 						})
-
+				
 				vm.arrayEscolha.push(tipo);
 
 
@@ -151,11 +151,57 @@ angular.module('app')
 		vm.arrayEscolha = [];
 		vm.lacre = null;
 		vm.trm = null;
-
 		vm.showLacre = true;
 	}
 
 	vm.salvar = function(){
+			
+		function testaView(){
+			if(isEmpty(vm.agente) || isEmpty(vm.date) || isEmpty(vm.hora) || isEmpty(vm.bairro) || isEmpty(vm.logradouro)){
+				console.log(vm.agente);
+				console.log(vm.date);
+				console.log(vm.hora);
+				console.log(vm.bairro);
+				console.log(vm.logradouro);
+				return false;
+			}
+		
+			return true;
+		}
+
+		
+		if(testaView){
+			var distinctLacre = []
+			var arrayObjLacre = []
+			vm.arrayExibe.forEach(function(value){
+				if(distinctLacre.indexOf(value.lacre) === -1){
+					distinctLacre.push(value.lacre);
+					arrayObjLacre.push({numero: value.lacre});
+				}
+			})	
+
+			arrayObjLacre.forEach(function(value){
+				vm.arrayExibe.forEach(function(exibido){
+					if(exibido.lacre === value.numero){
+						if(!value['mercadoria']){
+							value.mercadoria = [];
+							value.mercadoria.push({auto: vm.auto, agente: vm.agente.nome, data: vm.date,  hora: vm.hora, bairro: vm.bairro.bairro, logradouro: vm.logradouro.logradouro, produto: exibido.produto, quantidade: exibido.quantidade});						
+							value.trm = exibido.trm;
+						}else{
+							value.mercadoria.push({auto: vm.auto, agente: vm.agente.nome, data: vm.date,  hora: vm.hora, bairro: vm.bairro.bairro, logradouro: vm.logradouro.logradouro, produto: exibido.produto, quantidade: exibido.quantidade});
+							value.trm = exibido.trm;
+						}	
+					}
+				})
+
+				console.log(value);
+			})
+
+			
+		}
+		
+
+
 		function reseta(){
 			vm.auto = null;
 			vm.agente = null;
@@ -166,7 +212,8 @@ angular.module('app')
 			vm.arrayExibe = [];
 		}
 
-		reseta();
+		reseta();	
+		
 	}
 
 	vm.validaHora = function(value){
@@ -200,3 +247,4 @@ angular.module('app')
 	}
 
 }]);
+
