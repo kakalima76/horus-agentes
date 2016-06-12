@@ -566,17 +566,17 @@ angular.module('app')
 		{tipo: 'PAPEIS E PASTAS', produto: 'Papel Vegetal'},
 		{tipo: 'PAPEIS E PASTAS', produto: 'Transparências'},
 		{tipo: 'PAPEIS E PASTAS', produto: 'Outros papeis e pastas'},
-		{tipo: 'CARROÇA', produto: 'Pipoca'},
-		{tipo: 'CARROÇA', produto: 'Milho'},
-		{tipo: 'CARROÇA', produto: 'Cachorro-quente'},
-		{tipo: 'CARROÇA', produto: 'Lanche'},
-		{tipo: 'CARROÇA', produto: 'Batata-frita'},
-		{tipo: 'CARROÇA', produto: 'Churrasco'},
-		{tipo: 'CARROÇA', produto: 'Misto-quente'},
-		{tipo: 'CARROÇA', produto: 'Amendoim torrado'},
-		{tipo: 'CARROÇA', produto: 'Churros'},
-		{tipo: 'CARROÇA', produto: 'Crepe'},
-		{tipo: 'CARROÇA', produto: 'Pizza'},
+		{tipo: 'CARROÇA', produto: 'Carroça de Pipoca'},
+		{tipo: 'CARROÇA', produto: 'Carroça de Milho'},
+		{tipo: 'CARROÇA', produto: 'Carroça de Cachorro-quente'},
+		{tipo: 'CARROÇA', produto: 'Carroça de Lanche'},
+		{tipo: 'CARROÇA', produto: 'Carroça de Batata-frita'},
+		{tipo: 'CARROÇA', produto: 'Carroça de Churrasco'},
+		{tipo: 'CARROÇA', produto: 'Carroça de Misto-quente'},
+		{tipo: 'CARROÇA', produto: 'Carroça de Amendoim torrado'},
+		{tipo: 'CARROÇA', produto: 'Carroça de Churros'},
+		{tipo: 'CARROÇA', produto: 'Carroça de Crepe'},
+		{tipo: 'CARROÇA', produto: 'Carroça de Pizza'},
 		{tipo: 'CARROÇA', produto: 'Outra carroça'},
 		{tipo: 'TRANSPORTE', produto: 'Burro sem rabo'},
 		{tipo: 'TRANSPORTE', produto: 'Carrinho de feira'},
@@ -610,12 +610,48 @@ angular.module('app')
 		
 	]
 
+	var filtro = 
+		[
+			{filtro:  'ARTE E PINTURA'},
+			{filtro:  'ARTIGOS DE INFORMÁTICA'},
+			{filtro:  'ARTIGOS PARA APRESENTAÇÃO'},
+			{filtro:  'ARTIGOS PARA ESCRITA'},
+			{filtro:  'ARTIGOS PARA ESCRITÓRIO'},
+			{filtro:  'ARTIGOS PARA ORGANIZAÇÃO'},
+			{filtro:  'ARTIGOS PARA TELEFONES'},
+			{filtro:  'ELETRÔNICOS'},
+			{filtro:  'EMBALAGENS'},
+			{filtro:  'ENVELOPES E ETIQUETAS'},
+			{filtro:  'HIGIENE E LIMPEZA'},
+			{filtro:  'JOGOS'},
+			{filtro:  'MATERIAL ESCOLAR'},
+			{filtro:  'MIDIAS'},
+			{filtro:  'MOVEIS E EQUIPAMENTOS'},
+			{filtro:  'PAPEIS E PASTAS'},
+			{filtro:  'VEÍCULO'},
+			{filtro:  'ELETRODOMÉSTICO'},
+			{filtro:  'ARTIGOS DE TOUCADOR'},
+			{filtro:  'ARTIGOS DIVERSOS'},
+			{filtro:  'PEÇAS DE VESTUÁRIO'},
+			{filtro:  'TRANSPORTE'},
+			{filtro:  'CARROÇA'},
+			{filtro:  'UTENSÍLIOS PARA CARROÇAS'},
+			{filtro:  'BEBIDAS ALCÓOLICAS GARRAFA'},
+			{filtro:  'BEBIDAS ALCÓOLICAS LATA'},
+			{filtro:  'BEBIDAS NÂO ALCÓOLICAS'}
+		]
+
 	var get = function(){
 		return produtos;
 	}
 
+	var getFiltro = function(){
+		return filtro;
+	}
+
 	return {
-		get: get
+		get: get,
+		getFiltro: getFiltro
 	}
 
 }])
