@@ -158,19 +158,25 @@ angular.module('app')
 			
 		function testaView(){
 			if(isEmpty(vm.agente) || isEmpty(vm.date) || isEmpty(vm.hora) || isEmpty(vm.bairro) || isEmpty(vm.logradouro)){
-				console.log(vm.agente);
-				console.log(vm.date);
-				console.log(vm.hora);
-				console.log(vm.bairro);
-				console.log(vm.logradouro);
+				
 				return false;
 			}
 		
 			return true;
 		}
 
+		function reseta(){
+			vm.auto = null;
+			vm.agente = null;
+			vm.date = null;
+			vm.hora = null;
+			vm.bairro = null;
+			vm.logradouro = null;
+			vm.arrayExibe = [];
+		}
+
 		
-		if(testaView){
+		if(testaView()){
 			var distinctLacre = []
 			var arrayObjLacre = []
 			vm.arrayExibe.forEach(function(value){
@@ -185,34 +191,33 @@ angular.module('app')
 					if(exibido.lacre === value.numero){
 						if(!value['mercadoria']){
 							value.mercadoria = [];
-							value.mercadoria.push({trm: exibido.trm, auto: vm.auto, agente: vm.agente.nome,  hora: vm.hora, bairro: vm.bairro.bairro, logradouro: vm.logradouro.logradouro, produto: exibido.produto, quantidade: exibido.quantidade});						
+							value.mercadoria.push({produto: exibido.produto, quantidade: exibido.quantidade});						
 							value.data = vm.date.replace('/', '').replace('/', '');
+							value.auto = vm.auto;
+							value.trm = exibido.trm;
+							value.agente = vm.agente.nome;
+							value.hora = vm.hora;
+							value.bairro = vm.bairro.bairro;
+							value.logradouro = vm.logradouro.logradouro;
 						}else{
-							value.mercadoria.push({trm: exibido.trm, auto: vm.auto, agente: vm.agente.nome,  hora: vm.hora, bairro: vm.bairro.bairro, logradouro: vm.logradouro.logradouro, produto: exibido.produto, quantidade: exibido.quantidade});
+							value.mercadoria.push({produto: exibido.produto, quantidade: exibido.quantidade});						
 							value.data = vm.date.replace('/', '').replace('/', '');
+							value.auto = vm.auto;
+							value.trm = exibido.trm;
+							value.agente = vm.agente.nome;
+							value.hora = vm.hora;
+							value.bairro = vm.bairro.bairro;
+							value.logradouro = vm.logradouro.logradouro;
 						}	
 					}
 				})
 
 				lacreService.salvar(value);
 			})
-
-			
+			reseta();				
+		}else{
+			alert('Preencha todos os campos do formulário!');
 		}
-		
-
-
-		function reseta(){
-			vm.auto = null;
-			vm.agente = null;
-			vm.date = null;
-			vm.hora = null;
-			vm.bairro = null;
-			vm.logradouro = null;
-			vm.arrayExibe = [];
-		}
-
-		reseta();	
 		
 	}
 
