@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('anexosController', ['$uibModal', 'produtosService', 'bairrosService', 'agentesService', function($uibModal, produtosService, bairrosService, agentesService){
+.controller('anexosController', ['$uibModal', 'produtosService', 'bairrosService', 'agentesService', 'lacreService', function($uibModal, produtosService, bairrosService, agentesService, lacreService){
 	var vm = this;
 	vm.showLacre = true;
 	vm.arrayEscolha = [];
@@ -185,16 +185,16 @@ angular.module('app')
 					if(exibido.lacre === value.numero){
 						if(!value['mercadoria']){
 							value.mercadoria = [];
-							value.mercadoria.push({auto: vm.auto, agente: vm.agente.nome, data: vm.date,  hora: vm.hora, bairro: vm.bairro.bairro, logradouro: vm.logradouro.logradouro, produto: exibido.produto, quantidade: exibido.quantidade});						
-							value.trm = exibido.trm;
+							value.mercadoria.push({trm: exibido.trm, auto: vm.auto, agente: vm.agente.nome,  hora: vm.hora, bairro: vm.bairro.bairro, logradouro: vm.logradouro.logradouro, produto: exibido.produto, quantidade: exibido.quantidade});						
+							value.data = vm.date.replace('/', '').replace('/', '');
 						}else{
-							value.mercadoria.push({auto: vm.auto, agente: vm.agente.nome, data: vm.date,  hora: vm.hora, bairro: vm.bairro.bairro, logradouro: vm.logradouro.logradouro, produto: exibido.produto, quantidade: exibido.quantidade});
-							value.trm = exibido.trm;
+							value.mercadoria.push({trm: exibido.trm, auto: vm.auto, agente: vm.agente.nome,  hora: vm.hora, bairro: vm.bairro.bairro, logradouro: vm.logradouro.logradouro, produto: exibido.produto, quantidade: exibido.quantidade});
+							value.data = vm.date.replace('/', '').replace('/', '');
 						}	
 					}
 				})
 
-				console.log(value);
+				lacreService.salvar(value);
 			})
 
 			
