@@ -597,6 +597,7 @@ angular.module('app')
 		{tipo: 'VEÍCULO', produto: 'Caminhão'},
 		{tipo: 'VEÍCULO', produto: 'Ônibus'},
 		{tipo: 'VEÍCULO', produto: 'Moto'},
+		{tipo: 'VEÍCULO', produto: 'Carro'},
 		{tipo: 'ELETRODOMÉSTICO', produto: 'Micro-ondas'},
 		{tipo: 'ELETRODOMÉSTICO', produto: 'Fogão'},
 		{tipo: 'ELETRODOMÉSTICO', produto: 'Geladeira'},
