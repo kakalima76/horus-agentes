@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('anexosController', ['$uibModal', 'produtosService', 'bairrosService', 'agentesService', 'lacreService', function($uibModal, produtosService, bairrosService, agentesService, lacreService){
+.controller('autoController', ['$uibModal', 'produtosService', 'bairrosService', 'agentesService', 'lacreService', function($uibModal, produtosService, bairrosService, agentesService, lacreService){
 	var vm = this;
 	vm.showLacre = true;
 	vm.arrayEscolha = [];

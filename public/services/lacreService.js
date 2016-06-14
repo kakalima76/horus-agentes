@@ -8,7 +8,12 @@ angular.module('app')
 		})
 	}
 
+	var get = function(lacre){
+		return $http.get('http://ccuanexos.herokuapp.com/lacre/numero/' + lacre);
+	}
+
 	return{
-		salvar: salvar
+		salvar: salvar,
+		get: get
 	}
 }])

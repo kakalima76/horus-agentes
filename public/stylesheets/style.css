@@ -204,6 +204,7 @@ tr{
 }
 
 .glyphicon-refresh-animate {
+    color: white;
     -animation: spin .7s infinite linear;
     -ms-animation: spin .7s infinite linear;
     -webkit-animation: spinw .7s infinite linear;
@@ -247,4 +248,14 @@ tr{
 
 .corpoProdutos{
   margin-top: 2%;
+}
+
+.centroTag{
+  align-content: center;
+}
+
+.bordaBranca{
+  border-style: solid;
+  border-color: white;
+  border-width: 2px;
 }
