@@ -4,8 +4,13 @@ angular.module('app')
 		return  $http.get('http://ccuanexos.herokuapp.com/agentes');
 	}
 
+	var getAuth = function(matricula){
+		return $http.get('http://ccuanexos.herokuapp.com/agentes/escala/' + matricula);
+	}
+
 	return {
-		get: get
+		get: get,
+		getAuth: getAuth
 	}
 
 	

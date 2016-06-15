@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('anexoController',['anexoService', function(anexoService){
+.controller('anexoController',['anexoService', '$window', function(anexoService, $window){
 	var vm = this;
 	function isEmpty(val){
     	return (val === undefined || val == null || val.length <= 0) ? true : false;

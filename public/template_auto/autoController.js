@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('autoController', ['$uibModal', 'produtosService', 'bairrosService', 'agentesService', 'lacreService', function($uibModal, produtosService, bairrosService, agentesService, lacreService){
+.controller('autoController', ['$uibModal', 'produtosService', 'bairrosService', 'agentesService', 'lacreService', '$window', function($uibModal, produtosService, bairrosService, agentesService, lacreService, $window){
 	var vm = this;
 	vm.showLacre = true;
 	vm.arrayEscolha = [];
@@ -8,6 +8,11 @@ angular.module('app')
 	vm.produtos = produtosService.get().sort(compareProduto);
 	vm.filtros = produtosService.getFiltro().sort(compareFiltro);
 	vm.agentes = [];
+
+	vm.logoff = function(){
+		$window.localStorage.removeItem('usuario');
+		console.log('teste');
+	}
 	
 
 	function compareAgentes(a,b) {
