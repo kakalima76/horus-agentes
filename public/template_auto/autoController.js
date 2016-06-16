@@ -4,7 +4,7 @@ angular.module('app')
 	vm.showLacre = true;
 	vm.arrayEscolha = [];
 	vm.arrayExibe = [];
-	
+	vm.user = $window.localStorage['usuario'];
 	vm.produtos = produtosService.get().sort(compareProduto);
 	vm.filtros = produtosService.getFiltro().sort(compareFiltro);
 	vm.agentes = [];

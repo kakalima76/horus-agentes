@@ -1,8 +1,15 @@
 angular.module('app')
 .controller('anexoController',['anexoService', '$window', function(anexoService, $window){
 	var vm = this;
+	vm.user = $window.localStorage['usuario'];
+	
 	function isEmpty(val){
     	return (val === undefined || val == null || val.length <= 0) ? true : false;
+	}
+
+	vm.logoff = function(){
+		$window.localStorage.removeItem('usuario');
+		console.log('teste');
 	}
 
 	vm.sub_lacre = 'templates/sub_lacre.html';

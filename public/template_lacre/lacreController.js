@@ -1,11 +1,17 @@
 angular.module('app')
-.controller('lacreController', ['lacreService', function(lacreService){
+.controller('lacreController', ['lacreService', '$window', function(lacreService, $window){
 	var vm = this;
+	vm.user = $window.localStorage['usuario'];
 	function isEmpty(val){
     	return (val === undefined || val == null || val.length <= 0) ? true : false;
 	}
 
 	vm.sub_lacre = 'templates/sub_lacre.html';
+
+	vm.logoff = function(){
+		$window.localStorage.removeItem('usuario');
+		console.log('teste');
+	}
 
 	vm.buscar = function(lacre){
 

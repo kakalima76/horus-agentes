@@ -11,7 +11,13 @@ angular.module('app', ['ngRoute', 'ui.bootstrap'])
 	.when('/autos', {
 		templateUrl: 'template_auto/auto.html',
 		controller: 'autoController',
-		controllerAs: 'vm'
+		controllerAs: 'vm',
+		resolve:{
+			auth: ['authService', '$window', function(authService, $window){
+				var promise = authService.autentica($window.localStorage['usuario']);
+				return promise;
+			}]
+		}
 	})
 
 	.when('/anexos', {
@@ -35,19 +41,43 @@ angular.module('app', ['ngRoute', 'ui.bootstrap'])
 	.when('/estatisticas', {
 		templateUrl: 'template_estatistica/estatistica.html',
 		controller: 'estatisticaController',
-		controllerAs: 'vm'
+		controllerAs: 'vm',
+		resolve:{
+			auth: ['authService', '$window', function(authService, $window){
+				var promise = authService.autentica($window.localStorage['usuario']);
+				promise.then(function(resp){
+					console.log(resp);
+				}).catch(function(err){
+					console.log(err);
+				})
+
+				return promise;
+			}]
+		}
 	})
 
 	.when('/lacres', {
 		templateUrl: 'template_lacre/lacre.html',
 		controller: 'lacreController',
-		controllerAs: 'vm'
+		controllerAs: 'vm',
+		resolve:{
+			auth: ['authService', '$window', function(authService, $window){
+				var promise = authService.autentica($window.localStorage['usuario']);
+				promise.then(function(resp){
+					console.log(resp);
+				}).catch(function(err){
+					console.log(err);
+				})
+
+				return promise;
+			}]
+		}
 	})
 
 	.otherwise({redirectTo: '/'});
 
 	$locationProvider.html5Mode({
-  		enabled: false,
+  		enabled: true,
   		requireBase: false
 	});
 }])

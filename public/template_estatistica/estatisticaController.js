@@ -1,11 +1,17 @@
 angular.module('app')
-.controller('estatisticaController', ['anexoService', 'produtosService', function(anexoService, produtosService){
+.controller('estatisticaController', ['anexoService', 'produtosService', '$window', function(anexoService, produtosService, $window){
 	var vm = this;
 	vm.mostrarLoading = false;
 	vm.sub_estatisticas = 'templates/sub_estatisticas.html';
+	vm.user = $window.localStorage['usuario'];
 
 	function isEmpty(val){
     	return (val === undefined || val == null || val.length <= 0) ? true : false;
+	}
+
+	vm.logoff = function(){
+		$window.localStorage.removeItem('usuario');
+		console.log('teste');
 	}
 
 	vm.buscar = function(data){

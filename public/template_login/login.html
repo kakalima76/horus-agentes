@@ -1,10 +1,11 @@
 <widget-header titulo = 'GERÊNCIA DE OPERAÇÕES'></widget-header>
 
 <div class="home">
+  <center><span class="error" ng-show="vm.showError">Senha ou Usuário inválidos</span></center>
 	<form>
   		<div class="form-group">
     		<label for="exampleInputEmail1">Usuario</label>
-    			<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Usuário" ng-model='vm.user'>
+    			<input type="number" class="form-control" id="exampleInputEmail1" placeholder="Usuário" ng-model='vm.user'>
   		</div>
   
   		<div class="form-group">
@@ -13,5 +14,12 @@
   		</div>
   
   		<button type="submit" class="btn btn-default" ng-click="vm.logar()">Submit</button>
+
+      <div>
+        <center>
+          <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate" ng-show="vm.mostrarLoading">
+          </span>
+        </center>
+    </div>
 	</form>
 </div>
