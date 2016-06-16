@@ -4,6 +4,7 @@ angular.module('app')
 	vm.mostrarLoading = false;
 	vm.sub_estatisticas = 'templates/sub_estatisticas.html';
 	vm.user = $window.localStorage['usuario'];
+	vm.local = $window.localStorage['local'];
 
 	function isEmpty(val){
     	return (val === undefined || val == null || val.length <= 0) ? true : false;

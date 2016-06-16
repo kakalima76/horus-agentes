@@ -1,9 +1,10 @@
 angular.module('app')
-.controller('loginController', ['$window', 'agentesService', '$location',  function($window, agentesService, $location){
+.controller('loginController', ['$window', 'agentesService', '$location', 'localService', function($window, agentesService, $location, localService){
 	var vm = this;
 	vm.showError = false;
 	vm.user = null;
 	vm.pass = null;
+	vm.locais = localService.getLogin();
 
 	function isEmpty(val){
     	return (val === undefined || val == null || val.length <= 0) ? true : false;
@@ -17,26 +18,32 @@ angular.module('app')
 
 
 	vm.logar = function(){
-		vm.showError = false; 
-		vm.mostrarLoading = true;
-		 var promise = agentesService.getAuth(vm.user);
-		 promise.then(function(usuario){
-		 if(!isEmpty(usuario.data)){
-			 	if(usuario.data.senha === vm.pass){
-			 		$window.localStorage['usuario'] = usuario.data.nome;
-			 		$location.path('autos');
-			 	}else{
-			 		vm.showError = true;
-			 	}
-		 }else{
-		 	vm.showError = true;
-		 }
-		 	vm.mostrarLoading = false;
-		 })
 
-		 promise.catch(function(){
-		 	vm.mostrarLoading = false;
-		 })
-		
+		if(!isEmpty(vm.local)){
+			vm.showErrorLocal = false;
+			vm.showError = false; 
+			vm.mostrarLoading = true;
+			 var promise = agentesService.getAuth(vm.user);
+			 promise.then(function(usuario){
+			 if(!isEmpty(usuario.data)){
+				 	if(usuario.data.senha === vm.pass){
+				 		$window.localStorage['usuario'] = usuario.data.nome;
+				 		$window.localStorage['local'] = vm.local;
+				 		$location.path('autos');
+				 	}else{
+				 		vm.showError = true;
+				 	}
+			 }else{
+			 	vm.showError = true;
+			 }
+			 	vm.mostrarLoading = false;
+			 })
+
+			 promise.catch(function(){
+			 	vm.mostrarLoading = false;
+			 })
+		}else{
+			vm.showErrorLocal = true;
+		}
 	}
 }])

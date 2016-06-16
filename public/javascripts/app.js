@@ -27,12 +27,6 @@ angular.module('app', ['ngRoute', 'ui.bootstrap'])
 		resolve:{
 			auth: ['authService', '$window', function(authService, $window){
 				var promise = authService.autentica($window.localStorage['usuario']);
-				promise.then(function(resp){
-					console.log(resp);
-				}).catch(function(err){
-					console.log(err);
-				})
-
 				return promise;
 			}]
 		}
@@ -45,12 +39,6 @@ angular.module('app', ['ngRoute', 'ui.bootstrap'])
 		resolve:{
 			auth: ['authService', '$window', function(authService, $window){
 				var promise = authService.autentica($window.localStorage['usuario']);
-				promise.then(function(resp){
-					console.log(resp);
-				}).catch(function(err){
-					console.log(err);
-				})
-
 				return promise;
 			}]
 		}
@@ -63,12 +51,6 @@ angular.module('app', ['ngRoute', 'ui.bootstrap'])
 		resolve:{
 			auth: ['authService', '$window', function(authService, $window){
 				var promise = authService.autentica($window.localStorage['usuario']);
-				promise.then(function(resp){
-					console.log(resp);
-				}).catch(function(err){
-					console.log(err);
-				})
-
 				return promise;
 			}]
 		}
@@ -77,7 +59,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap'])
 	.otherwise({redirectTo: '/'});
 
 	$locationProvider.html5Mode({
-  		enabled: true,
+  		enabled: false,
   		requireBase: false
 	});
 }])

@@ -5,13 +5,14 @@ angular.module('app')
 	vm.arrayEscolha = [];
 	vm.arrayExibe = [];
 	vm.user = $window.localStorage['usuario'];
+	vm.local = $window.localStorage['local'];
 	vm.produtos = produtosService.get().sort(compareProduto);
 	vm.filtros = produtosService.getFiltro().sort(compareFiltro);
 	vm.agentes = [];
 
+
 	vm.logoff = function(){
 		$window.localStorage.removeItem('usuario');
-		console.log('teste');
 	}
 	
 
@@ -204,6 +205,9 @@ angular.module('app')
 							value.hora = vm.hora;
 							value.bairro = vm.bairro.bairro;
 							value.logradouro = vm.logradouro.logradouro;
+							value.dataCadastro = new Date();
+							value.agenteCadastro = $window.localStorage['usuario'];
+							value.localCadastro = $window.localStorage['local'];
 						}else{
 							value.mercadoria.push({produto: exibido.produto, quantidade: exibido.quantidade});						
 							value.data = vm.date.replace('/', '').replace('/', '');
@@ -213,6 +217,9 @@ angular.module('app')
 							value.hora = vm.hora;
 							value.bairro = vm.bairro.bairro;
 							value.logradouro = vm.logradouro.logradouro;
+							value.dataCadastro = new Date();
+							value.agenteCadastro = $window.localStorage['usuario'];
+							value.localCadastro = $window.localStorage['local'];
 						}	
 					}
 				})

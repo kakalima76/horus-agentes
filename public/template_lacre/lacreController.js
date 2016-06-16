@@ -2,6 +2,7 @@ angular.module('app')
 .controller('lacreController', ['lacreService', '$window', function(lacreService, $window){
 	var vm = this;
 	vm.user = $window.localStorage['usuario'];
+	vm.local = $window.localStorage['local'];
 	function isEmpty(val){
     	return (val === undefined || val == null || val.length <= 0) ? true : false;
 	}
