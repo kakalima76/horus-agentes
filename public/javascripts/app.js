@@ -1,6 +1,6 @@
 angular.module('app', ['ngRoute', 'ui.bootstrap'])
 
-.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
 	$routeProvider
 	.when('/', {
 		templateUrl: 'template_login/login.html',
@@ -59,7 +59,11 @@ angular.module('app', ['ngRoute', 'ui.bootstrap'])
 	.otherwise({redirectTo: '/'});
 
 	$locationProvider.html5Mode({
-  		enabled: true,
+  		enabled: false,
   		requireBase: false
 	});
+
+	$httpProvider.interceptors.push('timestampInterceptor');
+
+
 }])

@@ -2,7 +2,7 @@ angular.module('app')
 .controller('estatisticaController', ['anexoService', 'produtosService', '$window', function(anexoService, produtosService, $window){
 	var vm = this;
 	vm.mostrarLoading = false;
-	vm.sub_estatisticas = 'templates/sub_estatisticas.html';
+	vm.sub_estatisticas = 'templates/sub_estatistica.html';
 	vm.user = $window.localStorage['usuario'];
 	vm.local = $window.localStorage['local'];
 

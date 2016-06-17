@@ -7,7 +7,7 @@ angular.module('app')
     	return (val === undefined || val == null || val.length <= 0) ? true : false;
 	}
 
-	vm.sub_lacre = 'templates/sub_lacre.html';
+	vm.sub_lacre = 'templates/sub_lac.html';
 
 	vm.logoff = function(){
 		$window.localStorage.removeItem('usuario');
