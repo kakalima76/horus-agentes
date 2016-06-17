@@ -27,13 +27,19 @@ angular.module('app')
 	}
 
 	var promise = agentesService.get();
+	vm.agentesLoading = true;
 	promise.then(function(dados){
 		dados.data.forEach(function(value){
 			vm.agentes.push({nome: value.nome});
 		})
 
 		vm.agentes = vm.agentes.sort(compareAgentes);
+		vm.agentesLoading = false;
 	})
+	promise.catch(function(){
+		vm.agentesLoading = false;
+	})
+
 	
 	vm.bairros = bairrosService.getBairros();
 
@@ -49,11 +55,15 @@ angular.module('app')
 		  		return 0;
 		    }	 
 		}
-
+			vm.mostrarLoading = true;
 			var promise = bairrosService.get(value);
 			promise.then(function(dados){
 			vm.ruas = dados.data.sort(compareRuas);
-		})
+			vm.mostrarLoading = false;
+			});
+			promise.catch(function(){
+			vm.mostrarLoading = false;
+			});
 	}
 
 

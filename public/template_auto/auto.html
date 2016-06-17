@@ -20,6 +20,8 @@
     		<input type="text" class="form-control" placeholder="número do auto de apreensão" ng-model='vm.auto' maxlength="6">
 
     		<label class="fonteBranca">AGENTE</label>
+    		<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate" ng-show="vm.agentesLoading">
+          	</span>
 		  		<select ng-model='vm.agente' class="form-control" ng-options="item.nome for item in vm.agentes track by item.nome"></select>
 
 
@@ -34,6 +36,8 @@
 		  		<select ng-model='vm.bairro' class="form-control" ng-options="item.bairro for item in vm.bairros track by item.bairro" ng-change="vm.pegaRuas(vm.bairro.bairro)"></select>
 
 			<label class="fonteBranca">LOGRADOURO</label>
+			<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate" ng-show="vm.mostrarLoading">
+          	</span>
 				<select class="form-control" ng-model='vm.logradouro' ng-options="local.logradouro for local in vm.ruas track by local.logradouro">
 				</select>
 		</div>
