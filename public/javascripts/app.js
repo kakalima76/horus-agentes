@@ -1,16 +1,18 @@
 angular.module('app', ['ngRoute', 'ui.bootstrap'])
 
-.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
+.config(['$routeProvider', '$locationProvider', '$httpProvider', '$sceProvider', function($routeProvider, $locationProvider, $httpProvider, $sceProvider) {
+	$sceProvider.enabled(false);
+
 	$routeProvider
 	.when('/', {
-		templateUrl: 'template_login/login.html',
+		templateUrl: 'templates/login/login.html',
 		controller: 'loginController',
 		controllerAs: 'vm'
 	})
 
-	.when('/autos', {
-		templateUrl: 'template_auto/auto.html',
-		controller: 'autoController',
+	.when('/vistoria', {
+		templateUrl: 'templates/vistoria/vistoria.html',
+		controller: 'vistoriaController',
 		controllerAs: 'vm',
 		resolve:{
 			auth: ['authService', '$window', function(authService, $window){
@@ -20,46 +22,12 @@ angular.module('app', ['ngRoute', 'ui.bootstrap'])
 		}
 	})
 
-	.when('/anexos', {
-		templateUrl: 'template_anexo/anexo.html',
-		controller: 'anexoController',
-		controllerAs: 'vm',
-		resolve:{
-			auth: ['authService', '$window', function(authService, $window){
-				var promise = authService.autentica($window.localStorage['usuario']);
-				return promise;
-			}]
-		}
-	})
-
-	.when('/estatisticas', {
-		templateUrl: 'template_estatistica/estatistica.html',
-		controller: 'estatisticaController',
-		controllerAs: 'vm',
-		resolve:{
-			auth: ['authService', '$window', function(authService, $window){
-				var promise = authService.autentica($window.localStorage['usuario']);
-				return promise;
-			}]
-		}
-	})
-
-	.when('/lacres', {
-		templateUrl: 'template_lacre/lacre.html',
-		controller: 'lacreController',
-		controllerAs: 'vm',
-		resolve:{
-			auth: ['authService', '$window', function(authService, $window){
-				var promise = authService.autentica($window.localStorage['usuario']);
-				return promise;
-			}]
-		}
-	})
+	
 
 	.otherwise({redirectTo: '/'});
 
 	$locationProvider.html5Mode({
-  		enabled: true,
+  		enabled: false,
   		requireBase: false
 	});
 

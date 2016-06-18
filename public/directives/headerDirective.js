@@ -7,7 +7,7 @@ angular.module('app')
 			titulo: '@titulo'
 		},
 		restrict: 'E',
-		templateUrl: '/templates/header.html',
+		templateUrl: '/templates/sub_templates/header.html',
 		// replace: true,
 		// transclude: true,
 		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
